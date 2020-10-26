@@ -75,6 +75,11 @@ responses:
   utter_ask_email:
   - text: Do you want a list of top 10 restaurants in your email?
   - text: Should I send you details of all the restaurants on email?
+  utter_location_notfound:
+  - text: Sorry, location not found. Please specify the location again
+  utter_foodie_not_working:
+  - text: Sorry, Foodie is not working in this area. Can you please suggest some other
+      location
 actions:
 - action_search_restaurants
 - action_restart
@@ -82,3 +87,5 @@ actions:
 - action_verify_location
 - action_verify_cuisine
 - action_verify_budget
+- utter_location_notfound
+- utter_foodie_not_working
