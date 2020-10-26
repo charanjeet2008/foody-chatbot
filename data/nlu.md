@@ -78,7 +78,16 @@
 - [more than 700](budget)
 - [lesser than 300](budget)
 - [between 300 to 700](budget)
-- Rs. [300](email) to [700](email)
+- I am looking food [between 300 and 700](location) in [Mumbai](location)
+- I need food here
+- [Bangalore](location)
+- [Mumbai](location)
+- need restaurants in [Mumbai](location)
+- [New Delhi](location)
+- I need restaurants in [Bengalore](location)
+- I am looking for food [between 300 and 700](location) in [mumbai](location)
+- I need food in [Jammu](location)
+- [Dilli](location)
 
 ## intent:ask_email
 - can u mail me the information to [abc@abc.com](email)?
@@ -116,42 +125,48 @@
 - thanks. sure send it.
 - sure send it.
 - please
+- [lasdf@ldf.com](email)
+- [kjl@ljd.com](email)
+- [charanjeet2008@gmail.com](email)
+- [asdf@ldsf.com](email)
 
 ## synonym:Delhi
+- New Delhi
 - delhi
 - dilli
 - new delhi
-- New Delhi
+- Dilli
 
 ## synonym:bangalore
 - bengaluru
-
-## synonym:more than 700
-- >700
-- mt 700
-
-## synonym:kolkata
-- calcutta
-- Calcutta
+- Bengalore
 
 ## synonym:between 300 to 700
 - between 300-700
 - 300-700
+- between 300 and 700
+- 300 and 700
+- 700
+- between 300
 
 ## synonym:chinese
 - chines
 - Chinese
+
+## synonym:kolkata
+- calcutta
+- Calcutta
 
 ## synonym:lesser than 300
 - <300
 
 ## synonym:more than 700
 - >700
+- mt 700
 
 ## regex:email
 - <mailto:[a-zA-Z0-9_.+]+@[a-zA-Z]+[.][a-zA-Z0-9-.]+>$
 - [a-zA-Z0-9_.+]+@[a-zA-Z]+[.][a-zA-Z0-9-.]+$
 
 ## regex:greet
-- hey[^\s]*  
-
+- hey[^\s]*
