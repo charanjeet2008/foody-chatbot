@@ -23,8 +23,8 @@
     - utter_ask_email
 * affirm
     - utter_ask_emailid
-* ask_email{"emailid": "abc@abc.com"}
-    - slot{"emailid": "abc@abc.com"}
+* ask_email{"email": "abc@abc.com"}
+    - slot{"email": "abc@abc.com"}
     - action_send_email
     - utter_goodbye
         - action_restart

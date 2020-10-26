@@ -7,7 +7,7 @@ config = {"user_key": "be2cfee4af568158abde9eae6c636ca6"}
 zomato = zomatopy.initialize_app(config)
 
 
-def list_restaurants(loc, cuisine, minBudget, maxBudget):
+def list_restaurants(loc, cuisine, minBudget, maxBudget=10000):
     location_detail = zomato.get_location(loc, 1)
     location_json = json.loads(location_detail)
 
@@ -16,7 +16,15 @@ def list_restaurants(loc, cuisine, minBudget, maxBudget):
     cuisines_dict = {'american': 1, 'chinese': 25, 'north indian': 50, 'italian': 55, 'mexican': 73,
                      'south indian': 85,
                      'thai': 95}
-    budgets = [minBudget, maxBudget]
+    try:
+        minBudget = int(minBudget)
+    except TypeError:
+        minBudget =0
+
+    try:
+        maxBudget = int(maxBudget)
+    except TypeError:
+        maxBudget =5000
 
     list1 = [0, 20, 40, 60, 80]
     d = []
@@ -35,7 +43,7 @@ def list_restaurants(loc, cuisine, minBudget, maxBudget):
                              'restaurant_url': x['restaurant']['url']} for x in d])
         df = df.append(df1)
 
-    restaurant_df = df[(df.budget_for2people.isin(budgets))]
+    restaurant_df = df[df.budget_for2people.between(minBudget, maxBudget, inclusive=True)]
     restaurant_df = restaurant_df.sort_values(['restaurant_rating'], ascending=0)
 
     return restaurant_df
@@ -50,16 +58,5 @@ class SearchRestaurants:
 
         restaurants = list_restaurants(loc, cuisine, budgetmin, budgetmax)
         restaurants.drop_duplicates(inplace=True)
-        restaurants_length = len(restaurants)
-        top5 = restaurants.head(5)
-        # print(restaurants)
-        # top 5 results to display
-        if restaurants_length > 0:
-            response = 'Showing you top results:' + "\n"
-            for index, row in top5.iterrows():
-                response = response + str(row["restaurant_name"]) + ' (rated ' + row['restaurant_rating'] + ') in ' + \
-                           row['restaurant_address'] + ' and the average budget for two people ' + str(
-                    row['budget_for2people']) + "\n"
-        else:
-            response = 'No restaurants found in your budge'
-        return restaurants_length, response
+        return restaurants
+
