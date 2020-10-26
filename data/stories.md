@@ -114,3 +114,45 @@
     - slot{"cuisine":"italian"}
     - slot{"location":"Bangalore"}
     - action_search_restaurants
+
+## New Story
+
+* restaurant_search{"cuisine":"Italian","location":"Bangalore","budget":"more than 700"}
+    - slot{"budget":"more than 700"}
+    - slot{"cuisine":"Italian"}
+    - slot{"location":"Bangalore"}
+    - action_verify_cuisine
+    - slot{"cuisine_ok":true}
+    - utter_ask_budget
+* restaurant_search{"budget":"more than 700"}
+    - slot{"budget":"more than 700"}
+    - action_verify_budget
+    - slot{"budget_ok":true}
+    - action_search_restaurants
+    - utter_ask_email
+* affirm
+    - utter_ask_emailid
+* ask_email{"email":"pallavimaya1170@gmail.com"}
+    - slot{"email":"pallavimaya1170@gmail.com"}
+    - action_send_email
+    - utter_goodbye
+* greet
+    - utter_greet
+* restaurant_search
+    - utter_ask_location
+* restaurant_search{"location":"bangalore"}
+    - slot{"location":"bangalore"}
+    - action_verify_location
+    - slot{"location_ok":true}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine":"chinese"}
+    - slot{"cuisine":"chinese"}
+    - action_verify_cuisine
+    - slot{"cuisine_ok":true}
+    - utter_ask_budget
+* restaurant_search{"budget":"lesser than 300"}
+    - slot{"budget":"lesser than 300"}
+    - action_verify_budget
+    - slot{"budget_ok":true}
+    - action_search_restaurants
+    - utter_ask_email
