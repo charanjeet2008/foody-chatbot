@@ -45,21 +45,20 @@ class ActionSearchRestaurant(Action):
         top5 = restaurants.head(5)
         # print(restaurants)
         # top 5 results to display
+        i =0
         if restaurants_length > 0:
-            response = 'Showing you top results:' + "\n"
+            response = '**Showing you top results:**' + "\n"
             for index, row in top5.iterrows():
-                response = response + str(row["restaurant_name"]) + ' (rated ' + row['restaurant_rating'] + ') in ' + \
-                           row['restaurant_address'] + ' and the average budget for two people ' + str(
-                    row['budget_for2people']) + "\n"
+                i = i + 1
+                response = response + str(i) + '. **' + str(row["restaurant_name"]) + '**' + ' (rated **' + row[
+                    'restaurant_rating'] + '**) in **' + \
+                           row['restaurant_address'] + '** and the average budget for two people **' + str(
+                    row['budget_for2people']) + '**. \n URL: [' + row['restaurant_url'] + '](' + row[
+                               'restaurant_url'] + ')' + "\n"
         else:
-            response = 'No restaurants found in your budge'
+            response = 'No restaurants found in your budget'
         dispatcher.utter_message(str(response))
         return []
-
-        if restaurants_length > 0:
-            return [SlotSet("restaurant_exists", True)]
-
-        return [SlotSet("restaurant_exists", False)]
 
 
 class ActionSendEmail(Action):
