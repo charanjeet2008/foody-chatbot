@@ -75,15 +75,9 @@
 - show me [chines]{"entity": "cuisine", "value": "chinese"} restaurants in [chennai](location) within [638](budgetmax)
 - I am looking for [South indian](cuisine) food below [453](budgetmax)
 - I am looking a restaurant in [Nashik](location) from [391](budgetmin) to [845](budgetmax)
-- less than [327](budgetmax)
-- More than [327](budgetmin)
-- < [fgh](budgetmax)
-- > [def](budgetmin)
-- <[fgh](budgetmax)
-- >[def](budgetmin)
 - [301](budgetmin) to [702](budgetmax)
 - Rs [316](budgetmin) to [801](budgetmax)
-- More than [2344](budgetmin)
+
 
 ## intent:ask_email
 - can u mail me the information to [abc@abc.com](email)?
