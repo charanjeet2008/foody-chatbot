@@ -95,9 +95,44 @@
 - send to [abc_123-email@abc123.com](email)
 - this is my email address - [email-abc_123@abc.com.edu](email). send me an email.
 - [email1_34-ret@host-name.123.com](email)
+- can u share this information over email?
+- can u send me an email?
+- mail me the list
+- email me a list of top 10 restaurants
+- mail me the names of restaurants
+- please send me an email
+- please share this with me
+- send me an email
+- share some more restaurant names with me
+- share this over mail
+- share this information with me over email
+- yes. please send it to [vikaspandey.cdac@gmail.com](email)
+- cool. send all the restaurant details to [vikaspandey.cdac@yahoo.co.in](email)
+- [vikaspandey.cdac@hotmail.com](email)
+- okay, send it to [vikaspandey.cdac@abc.com](email), [jajsjs279@ddjjj.co.in](email)
+- can you please share the details on this id: [bvikaspandey.cdac@ndjskk.com](email)
+- yeah. cool. send it on [djjsq2_2o93o@abjdbjs.co.in](email)
+- yes. please email all the details to this address: [vikaspandey.cdac@gmail.com](email)
+- thanks. sure send it.
+- sure send it.
+- please
 
 ## synonym:Delhi
+- delhi
+- dilli
+- new delhi
 - New Delhi
+
+## synonym:bangalore
+- bengaluru
+
+## synonym:more than 700
+- >700
+- mt 700
+
+## synonym:kolkata
+- calcutta
+- Calcutta
 
 ## synonym:between 300 to 700
 - between 300-700
@@ -114,4 +149,9 @@
 - >700
 
 ## regex:email
-- ([\w\.-]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)
+- <mailto:[a-zA-Z0-9_.+]+@[a-zA-Z]+[.][a-zA-Z0-9-.]+>$
+- [a-zA-Z0-9_.+]+@[a-zA-Z]+[.][a-zA-Z0-9-.]+$
+
+## regex:greet
+- hey[^\s]*  
+
