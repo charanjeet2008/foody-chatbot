@@ -82,9 +82,6 @@ class ActionVerfiyLocation(Action):
     def run(self, dispatcher, tracker, domain):
         location = tracker.get_slot("location")
         check = check_location(location)
-        if check['location_f'] == "notfound":
-            dispatcher.utter_message(text="Please enter valid location")
-            return [SlotSet("location_ok", False)]
         if check['location_tier'] == "tier3":
             dispatcher.utter_message(text="We do not operate in that area yet")
             return [SlotSet("location_ok", False)]
