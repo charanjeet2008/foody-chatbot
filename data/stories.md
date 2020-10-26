@@ -156,3 +156,71 @@
     - slot{"budget_ok":true}
     - action_search_restaurants
     - utter_ask_email
+
+## New Story
+
+* greet
+    - utter_greet
+* restaurant_search{"location":"Bangalore"}
+    - slot{"location":"Bangalore"}
+    - slot{"location":"Bangalore"}
+    - action_verify_location
+    - slot{"location_ok":true}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine":"Italian"}
+    - slot{"cuisine":"Italian"}
+    - slot{"cuisine":"Italian"}
+    - action_verify_cuisine
+    - slot{"cuisine_ok":true}
+    - utter_ask_budget
+* restaurant_search{"budget":"more than 700"}
+    - slot{"budget":"more than 700"}
+    - slot{"budget":"more than 700"}
+    - action_verify_budget
+    - slot{"budget_ok":true}
+    - action_search_restaurants
+    - utter_ask_email
+* affirm
+    - utter_ask_emailid
+* ask_email{"email":"vikaspandey.cdac@gmail.com"}
+    - slot{"email":"vikaspandey.cdac@gmail.com"}
+    - slot{"email":"vikaspandey.cdac@gmail.com"}
+    - action_send_email
+    - utter_goodbye
+* greet
+    - utter_greet
+* restaurant_search{"location":"Dhanbad"}
+    - slot{"location":"Dhanbad"}
+    - slot{"location":"Dhanbad"}
+    - action_verify_location
+    - slot{"location_ok":true}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine":"Italian"}
+    - slot{"cuisine":"Italian"}
+    - slot{"cuisine":"Italian"}
+    - action_verify_cuisine
+    - slot{"cuisine_ok":true}
+    - utter_ask_budget
+* restaurant_search{"budget":"more than 700"}
+    - slot{"budget":"more than 700"}
+    - slot{"budget":"more than 700"}
+    - action_verify_budget
+    - slot{"budget_ok":true}
+    - action_search_restaurants
+    - slot{"location":"Bangalore"}
+    - slot{"cuisine":"Italian"}
+    - slot{"budget":"more than 700"}
+    - slot{"email":"vikaspandey.cdac@gmail.com"}
+    - slot{"location":"Dhanbad"}
+    - slot{"cuisine":"Italian"}
+    - slot{"budget":"more than 700"}
+    - utter_did_that_help
+* deny
+    - slot{"location":"Bangalore"}
+    - slot{"cuisine":"Italian"}
+    - slot{"budget":"more than 700"}
+    - slot{"email":"vikaspandey.cdac@gmail.com"}
+    - slot{"location":"Dhanbad"}
+    - slot{"cuisine":"Italian"}
+    - slot{"budget":"more than 700"}
+    - utter_greet
