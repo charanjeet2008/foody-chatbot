@@ -26,6 +26,6 @@ def check_location(loc):
     elif tier1_cities.__contains__(loc.lower()):
         return {'location_f': 'found', 'location_tier': 'tier1', 'location': loc}
     elif tier2_cities.__contains__(loc.lower()):
-        return {'location_f': 'found', 'location_tier': 'tier1', 'location': loc}
+        return {'location_f': 'found', 'location_tier': 'tier2', 'location': loc}
     else:
         return {'location_f': 'notfound', 'location_tier': 'tier3', 'location': loc}

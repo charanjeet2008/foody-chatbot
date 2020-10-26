@@ -43,7 +43,6 @@
 - search for restaurants
 - anywhere in the [west](location)
 - I am looking for [asian fusion](cuisine) food
-- I am looking a restaurant in [294328](location)
 - in [Gurgaon](location)
 - [South Indian](cuisine)
 - [North Indian](cuisine)
@@ -65,19 +64,21 @@
 - [delhi](location)
 - please find me a restaurant in [ahmedabad](location)
 - please show me a few [italian](cuisine) restaurants in [bangalore](location)
-- less than [113](budgetmax)
-- More than [113](budgetmin)
-- i'm looking for a place in [Delhi](location) under [556](budgetmax)
-- i'm looking for a place in [Delhi](location) over [565](budgetmin)
-- i'm looking for a place in [Delhi](location) within [678](budgetmax)
-- i'm looking for a place in [Delhi](location) between [634](budgetmin) and [1133](budgetmax)
-- show me [chinese](cuisine) restaurants over [6243](budgetmin)
-- show me [chines]{"entity": "cuisine", "value": "chinese"} restaurants in [chennai](location) within [638](budgetmax)
-- I am looking for [South indian](cuisine) food below [453](budgetmax)
-- I am looking a restaurant in [Nashik](location) from [391](budgetmin) to [845](budgetmax)
-- [301](budgetmin) to [702](budgetmax)
-- Rs [316](budgetmin) to [801](budgetmax)
-
+- restaurants in budget [lesser than 300](budget)
+- restaurants with budget [between 300 to 700](budget) for two people
+- restaurants with budget [between 300-700]{"entity": "budget", "value": "between 300 to 700"} for two people
+- show me restaurants where the budget for two people is [more than 700](budget)
+- show me restaurants where the budget for two people is [>700]{"entity": "budget", "value": "more than 700"}
+- [>700]{"entity": "budget", "value": "more than 700"}
+- [>700]{"entity": "budget", "value": "more than 700"} budget range
+- [<300]{"entity": "budget", "value": "lesser than 300"}
+- [<300]{"entity": "budget", "value": "lesser than 300"} budget range
+- [300-700]{"entity": "budget", "value": "between 300 to 700"}
+- [300-700]{"entity": "budget", "value": "between 300 to 700"} budget range
+- [more than 700](budget)
+- [lesser than 300](budget)
+- [between 300 to 700](budget)
+- Rs. [300](email) to [700](email)
 
 ## intent:ask_email
 - can u mail me the information to [abc@abc.com](email)?
@@ -94,27 +95,23 @@
 - send to [abc_123-email@abc123.com](email)
 - this is my email address - [email-abc_123@abc.com.edu](email). send me an email.
 - [email1_34-ret@host-name.123.com](email)
-- can u share this information over email?
-- can u send me an email?
-- mail me the list
-- email me a list of top 10 restaurants
-- mail me the names of restaurants
-- please send me an email
-- please share this with me
-- send me an email
-- share some more restaurant names with me
-- share this over mail
-- share this information with me over email
 
 ## synonym:Delhi
 - New Delhi
+
+## synonym:between 300 to 700
+- between 300-700
+- 300-700
 
 ## synonym:chinese
 - chines
 - Chinese
 
+## synonym:lesser than 300
+- <300
+
+## synonym:more than 700
+- >700
+
 ## regex:email
 - ([\w\.-]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)
-
-## lookup:cuisine
-  data/cuisine

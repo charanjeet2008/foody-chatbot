@@ -11,20 +11,17 @@ intents:
 entities:
 - cuisine
 - location
-- budgetmin
-- budgetmax
 - email
+- budget
 slots:
+  budget:
+    type: categorical
+    values:
+    - lesser than 300
+    - between 300 to 700
+    - more than 700
   budget_ok:
     type: bool
-  budgetmax:
-    type: float
-    max_value: 1.0
-    min_value: 0.0
-  budgetmin:
-    type: float
-    max_value: 1.0
-    min_value: 0.0
   cuisine:
     type: text
   cuisine_ok:
@@ -35,8 +32,6 @@ slots:
     type: text
   location_ok:
     type: bool
-  restaurant_exist:
-    type: unfeaturized
   restaurant_exists:
     type: bool
 responses:
@@ -63,12 +58,12 @@ responses:
   - text: In what location?
   utter_ask_budget:
   - buttons:
-    - payload: Less than Rs. 300
+    - payload: lesser than 300
       title: Less than Rs. 300
-    - payload: Rs. 300 to 700
+    - payload: between 300 to 700
       title: Rs. 300 to 700
-    - payload: More than 700
-      title: More than 700
+    - payload: more than 700
+      title: More than Rs. 700
     text: What price range are you looking for?
   utter_ask_emailid:
   - text: Please provide your email id.

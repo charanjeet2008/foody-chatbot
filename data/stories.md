@@ -13,13 +13,12 @@
     - action_verify_cuisine
     - slot{"cuisine_ok": true}
     - utter_ask_budget
-* restaurant_search{"budgetmin":"300", "budgetmax": "700"}
-    - slot{"budgetmax": "700"}
-    - slot{"budgetmin": "300"}
+* restaurant_search{"budget":"lesser than 300"}
+    - slot{"budget": "lesser than 300"}
     - action_verify_budget
     - slot{"budget_ok": true}
     - action_search_restaurants
-    - slot{"restaurant_exist": true}    
+    - slot{"restaurant_exists": true}    
     - utter_ask_email
 * affirm
     - utter_ask_emailid
@@ -29,7 +28,7 @@
     - utter_goodbye
         - action_restart
 
-## Story from conversation with 751c7388109e46458398bc8da15c0dd8 on October 25th 2020
+## Story from conversation with 80bad71a6cb6499c8e15cbf14d0b7965 on October 26th 2020
 
 * greet
     - utter_greet
@@ -45,24 +44,26 @@
     - action_verify_cuisine
     - slot{"cuisine_ok":true}
     - utter_ask_budget
-* restaurant_search{"budgetmax":"700"}
-    - slot{"budgetmax":"700"}
-    - slot{"budgetmax":"700"}
+* restaurant_search{"budget":"between 300 to 700"}
+    - slot{"budget":"between 300 to 700"}
+    - slot{"budget":"between 300 to 700"}
     - action_verify_budget
     - slot{"budget_ok":true}
     - action_search_restaurants
-    - slot{"restaurant_exists":true}
     - utter_ask_email
 * affirm
     - utter_ask_emailid
-* ask_email{"email":"asdf@ldf.com"}
+* ask_email{"email":"kjl@ljd.com"}
+    - slot{"email":"kjl@ljd.com"}
+    - slot{"email":"kjl@ljd.com"}
     - action_send_email
     - utter_goodbye
     - slot{"location":"Mumbai"}
     - slot{"cuisine":"South Indian"}
-    - slot{"budgetmax":"700"}
+    - slot{"budget":"between 300 to 700"}
+    - slot{"email":"kjl@ljd.com"}
 
-## Story from conversation with d361c52c747649aa9b0db69828f40323 on October 25th 2020
+## Story from conversation with 468c74b3fb4c452eae8c6789c87e556a on October 26th 2020
 
 * greet
     - utter_greet
@@ -78,19 +79,21 @@
     - action_verify_cuisine
     - slot{"cuisine_ok":true}
     - utter_ask_budget
-* restaurant_search{"budgetmax":"700"}
-    - slot{"budgetmax":"700"}
-    - slot{"budgetmax":"700"}
+* restaurant_search{"budget":"more than 700"}
+    - slot{"budget":"more than 700"}
+    - slot{"budget":"more than 700"}
     - action_verify_budget
     - slot{"budget_ok":true}
     - action_search_restaurants
-    - slot{"restaurant_exists":true}
     - utter_ask_email
-* deny
-    - slot{"location":"Mumbai"}
-    - slot{"cuisine":"South Indian"}
-    - slot{"budgetmax":"700"}
+* affirm
+    - utter_ask_emailid
+* ask_email{"email":"charanjeet2008@gmail.com"}
+    - slot{"email":"charanjeet2008@gmail.com"}
+    - slot{"email":"charanjeet2008@gmail.com"}
+    - action_send_email
     - utter_goodbye
     - slot{"location":"Mumbai"}
     - slot{"cuisine":"South Indian"}
-    - slot{"budgetmax":"700"}
+    - slot{"budget":"more than 700"}
+    - slot{"email":"charanjeet2008@gmail.com"}

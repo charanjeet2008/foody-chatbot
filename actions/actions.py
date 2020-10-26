@@ -23,12 +23,22 @@ class ActionSearchRestaurant(Action):
         return 'action_search_restaurants'
 
     def run(self, dispatcher, tracker, domain):
-        budgetmin = tracker.get_slot("budgetmin")
-        budgetmax = tracker.get_slot("budgetmax")
+        budget = tracker.get_slot("budget")
+
         location = tracker.get_slot("location")
         cuisine = tracker.get_slot("cuisine")
         global response, restaurants
         zomato = SearchRestaurants()
+
+        if budget == "lesser than 300":
+            budgetmin = 0
+            budgetmax = 300
+        elif budget == "between 300 to 700":
+            budgetmin = 300
+            budgetmax = 700
+        else:
+            budgetmin = 700
+            budgetmax = 10000
 
         restaurants = zomato.search_restaurants(location, cuisine, budgetmin, budgetmax)
         restaurants_length = len(restaurants)
@@ -45,6 +55,11 @@ class ActionSearchRestaurant(Action):
             response = 'No restaurants found in your budge'
         dispatcher.utter_message(str(response))
         return []
+
+        if restaurants_length > 0:
+            return [SlotSet("restaurant_exists", True)]
+
+        return [SlotSet("restaurant_exists", False)]
 
 
 class ActionSendEmail(Action):
@@ -68,8 +83,16 @@ class ActionVerfiyLocation(Action):
     def run(self, dispatcher, tracker, domain):
         location = tracker.get_slot("location")
         check = check_location(location)
-        return [SlotSet('location', check['location']), SlotSet('location_ok', check['location_f']),
-                SlotSet('location_tier', check['location_tier'])]
+        if check['location_f'] == "notfound":
+            dispatcher.utter_message(text="Please enter valid location")
+            return [SlotSet("location_ok", False)]
+        if check['location_tier'] == "tier3":
+            dispatcher.utter_message(text="We do not operate in that area yet")
+            return [SlotSet("location_ok", False)]
+
+        return [SlotSet("location_ok", True)]
+        #return [SlotSet('location', check['location']), SlotSet('location_ok', check['location_f']),
+         #       SlotSet('location_tier', check['location_tier'])]
 
 
 class ActionVerfiyCuisine(Action):
